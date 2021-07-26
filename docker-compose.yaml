@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+    nginx:
+        image: 
+            nginx
+        volumes: 
+            - ./nginx:/usr/share/nginx/html
+        ports: 
+            - 8080:80 
+    
+    mysql:
+        image: mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            LANG: C.UTF-8
+        ports:
+            - "3306:3306"
+        volumes: 
+            - ./mysql:/var/lib/mysql
+        command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
